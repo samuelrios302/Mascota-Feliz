@@ -6,7 +6,7 @@ class Conexion_MySQL:
     _conexion = None
 
     def __new__(cls):
-        if cls._conexion == None:
+        if cls._conexion is None:
             try:
                 cls._conexion = mysql.connector.connect (
                     username = "ezz3ttl39o1f7vel",
