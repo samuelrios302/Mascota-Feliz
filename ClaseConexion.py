@@ -22,5 +22,3 @@ class Conexion_MySQL:
                 print(f"ha ocurrido un error de conexion: {e}")
         
         return cls._conexion
-
-conexion1 = Conexion_MySQL()
