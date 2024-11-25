@@ -8,16 +8,15 @@ def abrir_json_veterinarios():
         tarjetas_veterinarios = []
     return tarjetas_veterinarios
 
-def verificar_tarjetas_veterinarios(tarjetas_veterinarios,tarjeta_profesional):
-
-    tarjeta_switch = True
-    for diccionario in tarjetas_veterinarios:
-        if diccionario['tarjeta_profesional'] == tarjeta_profesional:
-            tarjeta_switch = False
+def verificar_identificadores_unicos(json_lista, identificador):
+    switch = True
+    for diccionario in json_lista:
+        if diccionario['tarjeta_profesional'] == identificador or diccionario['identificacion'] == identificador:
+            switch = False
             break
-    return tarjeta_switch
-
+    return switch
 
 def actualizar_json_veterinarios(tarjetas_veterinarios):
     with open('tarjetas_veterinarios.json', 'w') as archivo_json:
         json.dump(tarjetas_veterinarios, archivo_json)
+
