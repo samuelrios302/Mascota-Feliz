@@ -21,7 +21,7 @@ CREATE TABLE mascotas (
     id_mascota INT PRIMARY KEY,
     nombre VARCHAR(50),
     especie VARCHAR(50),
-    raza VARCHAR(50)
+    raza VARCHAR(50),
     color VARCHAR(50),
     cantidad_visitas INT,
     id_dueño INT,

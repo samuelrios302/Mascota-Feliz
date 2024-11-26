@@ -23,7 +23,18 @@ def agregar_veterinarios(cursor, conexion):
 
             if id_switch:
                 print("Todo correcto, ahora llenado de datos...")
+                nombre = input("Ingrese el nombre: ")
+                direccion = input("Ingrese la direccion: ")
+                telefono = input("Ingrese el telefono: ")
+                correo = input("Ingrese el correo: ")
+
+                sql = "INSERT INTO veterinarios (tarjeta_profesional, id_veterinario, nombre_veterinario, direccion_veterinario, telefono_veterinario, correo_veterinario) VALUES (%s, %s, %s, %s, %s, %s)"
+
+                valores = (tarjeta_profesional,identificacion, nombre, direccion, telefono, correo)
                 # Se procede a hacer el llenado de los datos al veterinario y registrarlos a la base de datos
+
+                cursor.execute(sql, valores)
+                conexion.commit()
 
                 tarjetas_veterinarios.append({'tarjeta_profesional':tarjeta_profesional,'identificacion':identificacion})
                 funciones_json.actualizar_json_veterinarios(tarjetas_veterinarios)
